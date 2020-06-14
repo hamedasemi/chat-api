@@ -1,0 +1,34 @@
+# Go to the Service Accounts page in the Google Cloud Console. https://console.cloud.google.com/iam-admin/serviceaccounts 
+# Click Create service account or choose an existing account.
+# Click the More button Create key file in the Options column of the service accounts table and then select Create key to create and download a JSON-formatted key file.
+# Add the key file to CircleCI as a project environment variable. In this example, the variable is named GCLOUD_SERVICE_KEY.
+
+version: 2.1
+description: Deploy to Google Cloud Platform.
+
+executors:
+  gcp:
+    docker:
+      - image: google/cloud-sdk
+      
+commands:
+  deploy:
+    steps:
+      - run: echo $GCLOUD_SERVICE_ACCOUNT_KEY | gcloud auth activate-service-account --key-file=-
+      - run: gcloud config set project hamed-chat-api
+      - run: gcloud --quiet app deploy --version=production 
+
+jobs:
+  deploy:
+    executor: gcp
+    steps:
+      - checkout
+      - deploy
+
+workflows:
+  main:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: mainline
