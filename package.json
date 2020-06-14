@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node --require @babel/register .",
-    "dev": "nodemon ."
+    "dev": "nodemon --require @babel/register ."
   },
   "dependencies": {
     "@babel/core": "^7.10.2",

@@ -33,6 +33,6 @@ io.on('connection', (socket) => {
     socket.on('send-message', (payload) => {
         setTimeout(() => {
             io.emit('receive-message', payload)
-        }, 2000);
+        }, 1000);
     });
 })
