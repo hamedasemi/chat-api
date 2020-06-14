@@ -2,6 +2,7 @@
 # Click Create service account or choose an existing account.
 # Click the More button Create key file in the Options column of the service accounts table and then select Create key to create and download a JSON-formatted key file.
 # Add the key file to CircleCI as a project environment variable. In this example, the variable is named GCLOUD_SERVICE_KEY.
+# Enable App Engine Admin API https://console.developers.google.com/apis/library/appengine.googleapis.com
 
 version: 2.1
 description: Deploy to Google Cloud Platform.
