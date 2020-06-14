@@ -2,6 +2,6 @@ env: standard
 runtime: nodejs12
 
 handlers:
-- url: /
+- url: /*
   http_headers:
-    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Origin: "http://localhost:8080"
