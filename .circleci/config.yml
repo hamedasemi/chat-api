@@ -31,5 +31,4 @@ workflows:
       - deploy:
           filters:
             branches:
-              only: mainline
-              
+              only: master
