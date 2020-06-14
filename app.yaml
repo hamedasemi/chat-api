@@ -1,2 +1,7 @@
 env: standard
 runtime: nodejs12
+
+handlers:
+- url: /
+  http_headers:
+    Access-Control-Allow-Origin: "*"
