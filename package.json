@@ -4,15 +4,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "engines": {
     "node": "10.x.x"
   },
   "scripts": {
-    "start": "node .",
+    "start": "node --require @babel/register .",
     "dev": "nodemon ."
   },
   "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/register": "^7.10.1",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
   },
