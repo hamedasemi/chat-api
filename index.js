@@ -34,6 +34,6 @@ io.on('connection', (socket) => {
         setTimeout(() => {
             cb();
             io.emit('receive-message', payload)
-        }, 1000);
+        }, 500);
     });
 })
