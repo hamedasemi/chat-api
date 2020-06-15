@@ -30,8 +30,9 @@ io.use((socket, next) => {
 
 io.on('connection', (socket) => {
     // console.log('connection')
-    socket.on('send-message', (payload) => {
+    socket.on('send-message', (payload, cb) => {
         setTimeout(() => {
+            cb();
             io.emit('receive-message', payload)
         }, 1000);
     });
