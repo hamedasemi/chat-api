@@ -29,11 +29,15 @@ io.use((socket, next) => {
 });
 
 io.on('connection', (socket) => {
-    // console.log('connection')
     socket.on('send-message', (payload, cb) => {
         setTimeout(() => {
             cb();
             io.emit('receive-message', payload)
         }, 500);
+    });
+
+    socket.on('typing', (payload, cb) => {
+        cb();
+        io.emit('typing', payload)
     });
 })
